@@ -273,6 +273,154 @@
               <div class="help-block" id="recurring-description"></div>
             </div>
             {% endif %}
+
+            {# start custom options #}
+            <div>
+            <h3>ENTER CONTACT LENS PRESCRIPTION</h3>
+            <table class="table table-bordered">
+            <thead>
+            <tr>
+            <th></th>
+            <th>BC</th>
+            <th>DIA</th>
+            <th>SPH</th>
+            <th>CYL</th>
+            <th>AXIS</th>            
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>
+              <div class="form-group">
+                  <div class="checkbox">
+                    <label>
+                    <input type="checkbox"/>
+                      RIGHT (OD)
+                    </label>
+                  <div>                
+              <div>              
+            </td>
+            <td>8.6</td>
+            <td>14.5</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control">
+                  <option value="-7.50">-7.50</option>
+                  <option value="-7.00">-7.00</option>
+                  <option value="-6.50">-6.50</option>
+                  <option value="-6.00">-6.00</option>
+                  <option value="-5.75">-5.75</option>
+                  <option value="-5.50">-5.50</option>
+                  <option value="-5.25">-5.25</option>
+                  <option value="-5.00">-5.00</option>
+                  <option value="-4.75">-4.75</option>
+                  <option value="-4.50">-4.50</option>
+                  <option value="-4.25">-4.25</option>
+                  <option value="-4.00">-4.00</option>
+                  <option value="-3.75">-3.75</option>
+                  <option value="-3.50">-3.50</option>
+                  <option value="-3.25">-3.25</option>
+                  <option value="-3.00">-3.00</option>
+                  <option value="-2.75">-2.75</option>
+                  <option value="-2.50">-2.50</option>
+                  <option value="-2.25">-2.25</option>
+                  <option value="-2.00">-2.00</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1.00">-1.00</option>
+                  <option value="-0.75">-0.75</option>
+                  <option value="-0.50">-0.50</option>
+                  <option value="0.00">0.00</option>
+                </select>
+              </div>
+            </td>
+            <td>
+              <div class="form-group">
+                  <select class="form-control">
+                    <option>Select</option>
+                    <option value="0">0</option>
+                  </select>
+              </div>
+            </td>
+            <td>
+              <div class="form-group">
+                  <select class="form-control">
+                    <option>Select</option>
+                    <option value="0">0</option>
+                  </select>
+              </div>
+            </td>            
+            </tr>
+
+            <tr>
+            <td>              
+              <div class="form-group">                
+                  <div class="checkbox">
+                    <label>
+                    <input type="checkbox"/>
+                      LEFT (OS)	
+                    </label>
+                  <div>                
+              <div>
+            </td>
+            <td>8.6</td>
+            <td>14.5</td>
+            <td>
+              <div class="form-group">
+                <select class="form-control">
+                  <option value="-7.50">-7.50</option>
+                  <option value="-7.00">-7.00</option>
+                  <option value="-6.50">-6.50</option>
+                  <option value="-6.00">-6.00</option>
+                  <option value="-5.75">-5.75</option>
+                  <option value="-5.50">-5.50</option>
+                  <option value="-5.25">-5.25</option>
+                  <option value="-5.00">-5.00</option>
+                  <option value="-4.75">-4.75</option>
+                  <option value="-4.50">-4.50</option>
+                  <option value="-4.25">-4.25</option>
+                  <option value="-4.00">-4.00</option>
+                  <option value="-3.75">-3.75</option>
+                  <option value="-3.50">-3.50</option>
+                  <option value="-3.25">-3.25</option>
+                  <option value="-3.00">-3.00</option>
+                  <option value="-2.75">-2.75</option>
+                  <option value="-2.50">-2.50</option>
+                  <option value="-2.25">-2.25</option>
+                  <option value="-2.00">-2.00</option>
+                  <option value="-1.75">-1.75</option>
+                  <option value="-1.50">-1.50</option>
+                  <option value="-1.25">-1.25</option>
+                  <option value="-1.00">-1.00</option>
+                  <option value="-0.75">-0.75</option>
+                  <option value="-0.50">-0.50</option>
+                  <option value="0.00">0.00</option>
+                </select>
+              </div>
+            </td>
+            <td>
+              <div class="form-group">
+                  <select class="form-control">
+                    <option>Select</option>
+                    <option value="0">0</option>
+                  </select>
+              </div>
+            </td>
+            <td>
+              <div class="form-group">
+                  <select class="form-control">
+                    <option>Select</option>
+                    <option value="0">0</option>
+                  </select>
+              </div>
+            </td>            
+            </tr>
+            </tbody>
+            </table>
+            </div>
+            {# end custom options #}
+
             <div class="form-group">
               <label class="control-label" for="input-quantity">{{ entry_qty }}</label>
               <input type="text" name="quantity" value="{{ minimum }}" size="2" id="input-quantity" class="form-control" />
@@ -282,7 +430,7 @@
             </div>
             {% if minimum > 1 %}
             <div class="alert alert-info"><i class="fa fa-info-circle"></i> {{ text_minimum }}</div>
-            {% endif %}</div>
+            {% endif %}</div>          
           {% if review_status %}
           <div class="rating">
             <p>{% for i in 1..5 %}
