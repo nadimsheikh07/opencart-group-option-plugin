@@ -1,8 +1,10 @@
 <?php
-class ControllerProductProduct extends Controller {
+class ControllerProductProduct extends Controller
+{
 	private $error = array();
 
-	public function index() {
+	public function index()
+	{
 		$this->load->language('product/product');
 
 		$data['breadcrumbs'] = array();
@@ -11,6 +13,7 @@ class ControllerProductProduct extends Controller {
 			'text' => $this->language->get('text_home'),
 			'href' => $this->url->link('common/home')
 		);
+
 
 		$this->load->model('catalog/category');
 
@@ -438,13 +441,105 @@ class ControllerProductProduct extends Controller {
 			$data['recurrings'] = $this->model_catalog_product->getProfiles($this->request->get['product_id']);
 
 			$this->model_catalog_product->updateViewed($this->request->get['product_id']);
-			
+
 			$data['column_left'] = $this->load->controller('common/column_left');
 			$data['column_right'] = $this->load->controller('common/column_right');
 			$data['content_top'] = $this->load->controller('common/content_top');
 			$data['content_bottom'] = $this->load->controller('common/content_bottom');
 			$data['footer'] = $this->load->controller('common/footer');
 			$data['header'] = $this->load->controller('common/header');
+
+			// start custom options
+
+			$categories = $this->model_catalog_product->getCategories($product_id);
+			// testing
+			// $data['showBcOption'] = true;
+			// $data['showDiaOption'] = true;
+			// $data['showSphOption'] = true;
+			// $data['showCylOption'] = true;
+			// $data['showAxisOption'] = true;
+			// $data['showAddOption'] = true;
+			// $data['showIpdOption'] = true;
+
+			$data['showBcOption'] = false;
+			$data['showDiaOption'] = false;
+			$data['showSphOption'] = false;
+			$data['showCylOption'] = false;
+			$data['showAxisOption'] = false;
+			$data['showAddOption'] = false;
+			$data['showIpdOption'] = false;
+
+			if ($categories) {
+				foreach ($categories as $category) {
+					if (in_array($category['category_id'], [107, 224, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 131, 221, 222, 223, 229])) {
+						$data['showBcOption'] = true;
+						$data['showDiaOption'] = true;
+						$data['showSphOption'] = true;
+					}
+					if (in_array($category['category_id'], [126, 381, 342, 365, 379])) {
+						$data['showBcOption'] = true;
+						$data['showDiaOption'] = true;
+						$data['showSphOption'] = true;
+						$data['showCylOption'] = true;
+						$data['showAxisOption'] = true;
+					}
+					if (in_array($category['category_id'], [59, 166, 60, 105, 108, 112, 170, 171, 217, 218])) {
+						$data['showBcOption'] = false;
+						$data['showDiaOption'] = false;
+						$data['showSphOption'] = true;
+						$data['showCylOption'] = true;
+						$data['showAxisOption'] = true;
+						$data['showAddOption'] = true;
+						$data['showIpdOption'] = true;
+					}
+				}
+			}
+
+			$data['sph_data'] = array(
+				'-7.50',
+				'-7.00',
+				'-6.50',
+				'-6.00',
+				'-5.75',
+				'-5.50',
+				'-5.25',
+				'-5.00',
+				'-4.75',
+				'-4.50',
+				'-4.25',
+				'-4.00',
+				'-3.75',
+				'-3.50',
+				'-3.25',
+				'-3.00',
+				'-2.75',
+				'-2.50',
+				'-2.25',
+				'-2.00',
+				'-1.75',
+				'-1.50',
+				'-1.25',
+				'-1.00',
+				'-0.75',
+				'-0.50',
+				'0.00',
+			);
+
+			$data['cyl_data'] = array(
+				'0.0'
+			);
+
+			$data['axis_data'] = array(
+				'0.0'
+			);
+			$data['add_data'] = array(
+				'0.0'
+			);
+			$data['ipd_data'] = array(
+				'0.0'
+			);
+
+			// end custom options
 
 			$this->response->setOutput($this->load->view('product/product', $data));
 		} else {
@@ -520,7 +615,8 @@ class ControllerProductProduct extends Controller {
 		}
 	}
 
-	public function review() {
+	public function review()
+	{
 		$this->load->language('product/product');
 
 		$this->load->model('catalog/review');
@@ -559,7 +655,8 @@ class ControllerProductProduct extends Controller {
 		$this->response->setOutput($this->load->view('product/review', $data));
 	}
 
-	public function write() {
+	public function write()
+	{
 		$this->load->language('product/product');
 
 		$json = array();
@@ -599,7 +696,8 @@ class ControllerProductProduct extends Controller {
 		$this->response->setOutput(json_encode($json));
 	}
 
-	public function getRecurringDescription() {
+	public function getRecurringDescription()
+	{
 		$this->load->language('product/product');
 		$this->load->model('catalog/product');
 
@@ -622,7 +720,7 @@ class ControllerProductProduct extends Controller {
 		}
 
 		$product_info = $this->model_catalog_product->getProduct($product_id);
-		
+
 		$recurring_info = $this->model_catalog_product->getProfile($product_id, $recurring_id);
 
 		$json = array();
