@@ -276,8 +276,8 @@
 
             {# start custom options #}
             {% if showBcOption or showDiaOption or showSphOption or showCylOption or showAxisOption or showAddOption or showIpdOption %}
-            <div>
-            <h4>ENTER CONTACT LENS PRESCRIPTION</h4>
+            <h4>Enter Prescription</h4>
+            <div class="table-responsive">
             <table class="table table-bordered">
             <thead>
               <tr>
@@ -301,7 +301,7 @@
                 <th>ADD</th>            
                 {% endif %}
                 {% if showIpdOption %}
-                <th>Ipd</th>            
+                <th>IPD</th>            
                 {% endif %}
               </tr>
             </thead>
@@ -319,14 +319,14 @@
             {% if showBcOption %}
             <td>
               <div class="form-group">
-                <input type="text"  class="form-control" />
+                <input type="text" name="option[16]" class="form-control" style="max-width: 40px;"/>
               </div>
             </td>
             {% endif %}            
             {% if showDiaOption %}
             <td>
               <div class="form-group">
-                <input type="text"  class="form-control" />
+                <input type="text"  class="form-control" style="max-width: 40px;"/>
               </div>
             </td>
             {% endif %}
@@ -414,14 +414,14 @@
            {% if showBcOption %}
             <td>
               <div class="form-group">
-                <input type="text"  class="form-control" />
+                <input type="text"  class="form-control" style="max-width: 40px;"/>
               </div>
             </td>
             {% endif %}            
             {% if showDiaOption %}
             <td>
               <div class="form-group">
-                <input type="text"  class="form-control" />
+                <input type="text"  class="form-control" style="max-width: 40px;"/>
               </div>
             </td>
             {% endif %}
