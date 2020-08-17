@@ -319,14 +319,14 @@
             {% if showBcOption %}
             <td>
               <div class="form-group">
-                <input type="text" name="option[RIGHT (OD), BC]" class="form-control" style="max-width: 40px;"/>
+                <input type="text" name="option[RIGHT (OD), BC]" class="form-control" style="max-width: 40px;" value="0.00"/>
               </div>
             </td>
             {% endif %}            
             {% if showDiaOption %}
             <td>
               <div class="form-group">
-                <input type="text" name="option[RIGHT (OD), DIA]"  class="form-control" style="max-width: 40px;"/>
+                <input type="text" name="option[RIGHT (OD), DIA]"  class="form-control" style="max-width: 40px;" value="0.00"/>
               </div>
             </td>
             {% endif %}
@@ -335,8 +335,12 @@
               <div class="form-group">
                 <select class="form-control" name="option[RIGHT (OD), SPH]">
                   {% if sph_data %}
-                  {% for sph_value in sph_data %}
-                    <option value="{{ sph_value }}">{{ sph_value }}</option>
+                  {% for option in sph_data %}                    
+                    {% if (option == '0.00') %}
+                      <option value="{{ option }}" selected>{{ option }}</option>
+                    {% else %}
+                      <option value="{{ option }}" >{{ option }}</option>
+                    {% endif %}  
                   {% endfor %}
                   {% endif %}
                 </select>
@@ -348,8 +352,12 @@
               <div class="form-group">
                   <select class="form-control" name="option[RIGHT (OD), CYL]">                    
                     {% if cyl_data %}
-                    {% for cyl_value in cyl_data %}
-                      <option value="{{ cyl_value }}">{{ cyl_value }}</option>
+                    {% for option in cyl_data %}
+                      {% if (option == '0.00') %}
+                        <option value="{{ option }}" selected>{{ option }}</option>
+                      {% else %}
+                        <option value="{{ option }}" >{{ option }}</option>
+                      {% endif %}                      
                     {% endfor %}
                     {% endif %}
                   </select>
@@ -361,8 +369,12 @@
               <div class="form-group">
                   <select class="form-control" name="option[RIGHT (OD), AXIS]">                    
                     {% if axis_data %}
-                    {% for axis_value in axis_data %}
-                      <option value="{{ axis_value }}">{{ axis_value }}</option>
+                    {% for option in axis_data %}
+                        {% if (option == '0.00') %}
+                        <option value="{{ option }}" selected>{{ option }}</option>
+                      {% else %}
+                        <option value="{{ option }}" >{{ option }}</option>
+                      {% endif %}                      
                     {% endfor %}
                     {% endif %}
                   </select>
@@ -374,8 +386,12 @@
               <div class="form-group">
                   <select class="form-control" name="option[RIGHT (OD), ADD]">                    
                     {% if add_data %}
-                    {% for add_value in add_data %}
-                      <option value="{{ add_value }}">{{ add_value }}</option>
+                    {% for option in add_data %}
+                        {% if (option == '+4.00') %}
+                        <option value="{{ option }}" selected>{{ option }}</option>
+                      {% else %}
+                        <option value="{{ option }}" >{{ option }}</option>
+                      {% endif %}                      
                     {% endfor %}
                     {% endif %}
                   </select>
@@ -387,8 +403,12 @@
               <div class="form-group">
                   <select class="form-control" name="option[RIGHT (OD), IPD]">                    
                     {% if ipd_data %}
-                    {% for ipd_value in ipd_data %}
-                      <option value="{{ ipd_value }}">{{ ipd_value }}</option>
+                    {% for option in ipd_data %}
+                        {% if (option == '64mm') %}
+                        <option value="{{ option }}" selected>{{ option }}</option>
+                      {% else %}
+                        <option value="{{ option }}" >{{ option }}</option>
+                      {% endif %}                      
                     {% endfor %}
                     {% endif %}
                   </select>
@@ -410,24 +430,28 @@
            {% if showBcOption %}
             <td>
               <div class="form-group">
-                <input type="text" name="option[LEFT (OS), BC]" class="form-control" style="max-width: 40px;"/>
+                <input type="text" name="option[LEFT (OS), BC]" class="form-control" style="max-width: 40px;" value="0.00"/>
               </div>
             </td>
             {% endif %}            
             {% if showDiaOption %}
             <td>
               <div class="form-group">
-                <input type="text" name="option[LEFT (OS), DIA]"  class="form-control" style="max-width: 40px;"/>
+                <input type="text" name="option[LEFT (OS), DIA]"  class="form-control" style="max-width: 40px;" value="0.00"/>
               </div>
             </td>
             {% endif %}
             {% if showSphOption %}
             <td>
               <div class="form-group">
-                <select class="form-control" name="option[LEFT (OS), SPH]">
+                <select class="form-control" name="option[LEFT (OS), SPH]" value="0.00">
                   {% if sph_data %}
-                  {% for sph_value in sph_data %}
-                    <option value="{{ sph_value }}">{{ sph_value }}</option>
+                  {% for option in sph_data %}                  
+                    {% if (option == '0.00') %}
+                        <option value="{{ option }}" selected>{{ option }}</option>
+                      {% else %}
+                        <option value="{{ option }}" >{{ option }}</option>
+                      {% endif %}                      
                   {% endfor %}
                   {% endif %}
                 </select>
@@ -439,8 +463,12 @@
               <div class="form-group">
                   <select class="form-control" name="option[LEFT (OS), CYL]">                    
                     {% if cyl_data %}
-                    {% for cyl_value in cyl_data %}
-                      <option value="{{ cyl_value }}">{{ cyl_value }}</option>
+                    {% for option in cyl_data %}
+                        {% if (option == '0.00') %}
+                        <option value="{{ option }}" selected>{{ option }}</option>
+                      {% else %}
+                        <option value="{{ option }}" >{{ option }}</option>
+                      {% endif %}                      
                     {% endfor %}
                     {% endif %}
                   </select>
@@ -452,8 +480,12 @@
               <div class="form-group">
                   <select class="form-control" name="option[LEFT (OS), AXIS]">                    
                     {% if axis_data %}
-                    {% for axis_value in axis_data %}
-                      <option value="{{ axis_value }}">{{ axis_value }}</option>
+                    {% for option in axis_data %}
+                        {% if (option == '0.00') %}
+                        <option value="{{ option }}" selected>{{ option }}</option>
+                      {% else %}
+                        <option value="{{ option }}" >{{ option }}</option>
+                      {% endif %}                      
                     {% endfor %}
                     {% endif %}
                   </select>
@@ -465,8 +497,12 @@
               <div class="form-group">
                   <select class="form-control" name="option[LEFT (OS), ADD]">                    
                     {% if add_data %}
-                    {% for add_value in add_data %}
-                      <option value="{{ add_value }}">{{ add_value }}</option>
+                    {% for option in add_data %}
+                        {% if (option == '+4.00') %}
+                        <option value="{{ option }}" selected>{{ option }}</option>
+                      {% else %}
+                        <option value="{{ option }}" >{{ option }}</option>
+                      {% endif %}                      
                     {% endfor %}
                     {% endif %}
                   </select>
@@ -478,8 +514,12 @@
               <div class="form-group">
                   <select class="form-control" name="option[LEFT (OS), IPD]">                    
                     {% if ipd_data %}
-                    {% for ipd_value in ipd_data %}
-                      <option value="{{ ipd_value }}">{{ ipd_value }}</option>
+                    {% for option in ipd_data %}
+                        {% if (option == '64mm') %}
+                        <option value="{{ option }}" selected>{{ option }}</option>
+                      {% else %}
+                        <option value="{{ option }}" >{{ option }}</option>
+                      {% endif %}                      
                     {% endfor %}
                     {% endif %}
                   </select>
