@@ -276,8 +276,8 @@
 
             {# start custom options #}
             {% if showBcOption or showDiaOption or showSphOption or showCylOption or showAxisOption or showAddOption or showIpdOption %}
-            <h4>Enter Prescription</h4>
-            <div class="table-responsive">
+            <h4 style="text-transform: capitalize">Enter Prescription</h4>
+            <div class="table-responsive product-options">
             <table class="table table-bordered">
             <thead>
               <tr>
@@ -319,21 +319,21 @@
             {% if showBcOption %}
             <td>
               <div class="form-group">
-                <input type="text" name="option[16]" class="form-control" style="max-width: 40px;"/>
+                <input type="text" name="option[RIGHT (OD), BC]" class="form-control" style="max-width: 40px;"/>
               </div>
             </td>
             {% endif %}            
             {% if showDiaOption %}
             <td>
               <div class="form-group">
-                <input type="text"  class="form-control" style="max-width: 40px;"/>
+                <input type="text" name="option[RIGHT (OD), DIA]"  class="form-control" style="max-width: 40px;"/>
               </div>
             </td>
             {% endif %}
             {% if showSphOption %}
             <td>
               <div class="form-group">
-                <select class="form-control">
+                <select class="form-control" name="option[RIGHT (OD), SPH]">
                   {% if sph_data %}
                   {% for sph_value in sph_data %}
                     <option value="{{ sph_value }}">{{ sph_value }}</option>
@@ -346,8 +346,7 @@
             {% if showCylOption %}
             <td>
               <div class="form-group">
-                  <select class="form-control">
-                    <option>Select</option>
+                  <select class="form-control" name="option[RIGHT (OD), CYL]">                    
                     {% if cyl_data %}
                     {% for cyl_value in cyl_data %}
                       <option value="{{ cyl_value }}">{{ cyl_value }}</option>
@@ -360,8 +359,7 @@
             {% if showAxisOption %}
             <td>
               <div class="form-group">
-                  <select class="form-control">
-                    <option>Select</option>
+                  <select class="form-control" name="option[RIGHT (OD), AXIS]">                    
                     {% if axis_data %}
                     {% for axis_value in axis_data %}
                       <option value="{{ axis_value }}">{{ axis_value }}</option>
@@ -374,8 +372,7 @@
             {% if showAddOption %}
             <td>
               <div class="form-group">
-                  <select class="form-control">
-                    <option>Select</option>
+                  <select class="form-control" name="option[RIGHT (OD), ADD]">                    
                     {% if add_data %}
                     {% for add_value in add_data %}
                       <option value="{{ add_value }}">{{ add_value }}</option>
@@ -388,8 +385,7 @@
             {% if showIpdOption %}
             <td>
               <div class="form-group">
-                  <select class="form-control">
-                    <option>Select</option>
+                  <select class="form-control" name="option[RIGHT (OD), IPD]">                    
                     {% if ipd_data %}
                     {% for ipd_value in ipd_data %}
                       <option value="{{ ipd_value }}">{{ ipd_value }}</option>
@@ -414,21 +410,21 @@
            {% if showBcOption %}
             <td>
               <div class="form-group">
-                <input type="text"  class="form-control" style="max-width: 40px;"/>
+                <input type="text" name="option[LEFT (OS), BC]" class="form-control" style="max-width: 40px;"/>
               </div>
             </td>
             {% endif %}            
             {% if showDiaOption %}
             <td>
               <div class="form-group">
-                <input type="text"  class="form-control" style="max-width: 40px;"/>
+                <input type="text" name="option[LEFT (OS), DIA]"  class="form-control" style="max-width: 40px;"/>
               </div>
             </td>
             {% endif %}
             {% if showSphOption %}
             <td>
               <div class="form-group">
-                <select class="form-control">
+                <select class="form-control" name="option[LEFT (OS), SPH]">
                   {% if sph_data %}
                   {% for sph_value in sph_data %}
                     <option value="{{ sph_value }}">{{ sph_value }}</option>
@@ -441,8 +437,7 @@
             {% if showCylOption %}
             <td>
               <div class="form-group">
-                  <select class="form-control">
-                    <option>Select</option>
+                  <select class="form-control" name="option[LEFT (OS), CYL]">                    
                     {% if cyl_data %}
                     {% for cyl_value in cyl_data %}
                       <option value="{{ cyl_value }}">{{ cyl_value }}</option>
@@ -455,8 +450,7 @@
             {% if showAxisOption %}
             <td>
               <div class="form-group">
-                  <select class="form-control">
-                    <option>Select</option>
+                  <select class="form-control" name="option[LEFT (OS), AXIS]">                    
                     {% if axis_data %}
                     {% for axis_value in axis_data %}
                       <option value="{{ axis_value }}">{{ axis_value }}</option>
@@ -465,12 +459,11 @@
                   </select>
               </div>
             </td>     
-            {% endif %}    
+            {% endif %}       
             {% if showAddOption %}
             <td>
               <div class="form-group">
-                  <select class="form-control">
-                    <option>Select</option>
+                  <select class="form-control" name="option[LEFT (OS), ADD]">                    
                     {% if add_data %}
                     {% for add_value in add_data %}
                       <option value="{{ add_value }}">{{ add_value }}</option>
@@ -479,12 +472,11 @@
                   </select>
               </div>
             </td>     
-            {% endif %}      
+            {% endif %}  
             {% if showIpdOption %}
             <td>
               <div class="form-group">
-                  <select class="form-control">
-                    <option>Select</option>
+                  <select class="form-control" name="option[LEFT (OS), IPD]">                    
                     {% if ipd_data %}
                     {% for ipd_value in ipd_data %}
                       <option value="{{ ipd_value }}">{{ ipd_value }}</option>
@@ -493,7 +485,7 @@
                   </select>
               </div>
             </td>     
-            {% endif %}        
+            {% endif %}     
             </tr>
             </tbody>
             </table>
